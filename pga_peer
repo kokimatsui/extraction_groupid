@@ -1,0 +1,12 @@
+＃特定の値を抽出
+import pandas as pd
+df = pd.read_csv("name.csv")
+df
+df["name"] == "抽出したいやつ"
+
+#peer groupのability variance
+In [6]: uniq_groups = list( set( list( df["grouping_id"]  ) ) )
+   ...: for group in uniq_groups:
+   ...:     grouping_n = grouping_groupby.get_group( group )
+   ...:     grouping_n_stdr = np.array(  grouping_n["handicap"] ).std()
+   ...:     print(  group , "能力分散 :"  , round( grouping_n_std ) ,150)
