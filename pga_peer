@@ -10,3 +10,402 @@ In [6]: uniq_groups = list( set( list( df["grouping_id"]  ) ) )
    ...:     grouping_n = grouping_groupby.get_group( group )
    ...:     grouping_n_stdr = np.array(  grouping_n["handicap"] ).std()
    ...:     print(  group , "能力分散 :"  , round( grouping_n_std ) ,150)
+
+＃自分のパソコンでt変えない文を一旦コピー
+
+
+
+  File "pandas/_libs/parsers.pyx", line 384, in pandas._libs.parsers.TextReader.__cinit__
+
+  File "pandas/_libs/parsers.pyx", line 695, in pandas._libs.parsers.TextReader._setup_parser_source
+
+FileNotFoundError: File b'memo.csv' does not exist
+
+
+In [6]: 
+
+In [6]: uniq_groups = list( set( list( df["grouping_id"]  ) ) )
+   ...: for group in uniq_groups:
+   ...:     grouping_n = grouping_groupby.get_group( group )
+   ...:     grouping_n_std = np.array(  grouping_n["handicap"] ).std()
+   ...:     print(  group , "の標準偏差 :"  , round( grouping_n_std  ) , 10 )
+Traceback (most recent call last):
+
+  File "<ipython-input-6-3143325a9c83>", line 1, in <module>
+    uniq_groups = list( set( list( df["grouping_id"]  ) ) )
+
+NameError: name 'df' is not defined
+
+
+In [7]: 
+
+In [7]: df = pd.read_csv("dataset2019a.csv")
+Traceback (most recent call last):
+
+  File "<ipython-input-7-e6d6d798d570>", line 1, in <module>
+    df = pd.read_csv("dataset2019a.csv")
+
+  File "/Users/matsui/.pyenv/versions/anaconda3-5.3.0/lib/python3.7/site-packages/pandas/io/parsers.py", line 678, in parser_f
+    return _read(filepath_or_buffer, kwds)
+
+  File "/Users/matsui/.pyenv/versions/anaconda3-5.3.0/lib/python3.7/site-packages/pandas/io/parsers.py", line 440, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+
+  File "/Users/matsui/.pyenv/versions/anaconda3-5.3.0/lib/python3.7/site-packages/pandas/io/parsers.py", line 787, in __init__
+    self._make_engine(self.engine)
+
+  File "/Users/matsui/.pyenv/versions/anaconda3-5.3.0/lib/python3.7/site-packages/pandas/io/parsers.py", line 1014, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+
+  File "/Users/matsui/.pyenv/versions/anaconda3-5.3.0/lib/python3.7/site-packages/pandas/io/parsers.py", line 1708, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+
+  File "pandas/_libs/parsers.pyx", line 384, in pandas._libs.parsers.TextReader.__cinit__
+
+  File "pandas/_libs/parsers.pyx", line 695, in pandas._libs.parsers.TextReader._setup_parser_source
+
+FileNotFoundError: File b'dataset2019a.csv' does not exist
+# -*- coding: utf-8 -*-
+
+import pandas as pd
+csv_data = pd.read_csv("memo.csv")
+column = csv_data["handicap"]
+
+print( csv_data.describe() )
+( csv_data.describe() )
+first_hikisu = csv_data.describe
+
+import pandas as pd
+a= pd.read_csv("memo.csv")
+import pandas as pd
+csv_data = pd.read_csv("memo.csv")
+column = csv_data["handicap"]
+
+import os
+os.getcwd() 
+os.chdir("/Users/matsui/Desktop/lab.nakamuro")
+os.getcwd()
+import pandas as pd
+data = pd.read_csv("dataset2019a.csv")
+import pandas as pd
+
+csv_data = pd.read_csv("dataset2019a.csv")
+
+
+print( csv_data.describe() )
+summary_statistics = csv_data.describe()
+
+import pandas as pd
+df = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/dataset2019a.csv")
+df
+df["grouping_id"] == "1_1"
+
+import pandas as pd
+df = pd.read_csv("dataset2019a.csv")
+id_groupby = df.groupby("grouping_id")
+id_groupby
+id_groupby.groups
+
+id_groupby = df.groupby("handicap")
+id_groupby.std()
+ability_variance=id_groupby.std()
+
+grouping_groupby = df.groupby("grouping_id")
+grouping_groupby
+grouping_groupby.groups
+grouping_groupby.get_group('1_1')
+grouping_1_1=grouping_groupby.get_group('1_1')
+import sys
+import numpy as np
+#hoge = np.array( grouping_1_1 ["handicap"] ).std()
+uniq_groups = list( set( list( df["grouping_id"]  ) ) )
+for group in uniq_groups:
+    grouping_n = grouping_groupby.get_group( group )
+    grouping_n_std = np.array(  grouping_n["handicap"] ).std()
+    print(  group , "の標準偏差 :"  , ( grouping_n_std  )  )
+    grouping_n_std
+
+mk.heatmap( JHPS2013_b[['health','equ_inc','more_75%','inc_per1','age','sex','marriage','smoke','drink','social_cap']]  )
+#mk.heatmap( JHPS2015_b[['health','equ_inc','more_75%','inc_per1','age','sex','marriage','smoke','drink','social_cap']]  )
+plt.tick_params(labelsize = 8)
+
+plt.savefig('hogehoge.png')
+    
+sys.exit()
+grouping_groupby.std()
+grouping_std=grouping_groupby.std()
+id_groupby.count()
+grouping_count=id_groupby.count()
+
+import collections
+import itertools
+import os
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+result_dir_path = 'results'
+
+df = pd.read_csv(
+    os.path.join(result_dir_path, 'pga.csv'),
+    usecols=['title', 'created_at', 'likes_count', 'comments_count', 'tags_str', 'url', 'id']
+)
+
+print(len(df))
+
+
+
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({'A': range(5),
+                   'B': [x**2 for x in range(5)],
+                   'C': [x**3 for x in range(5)]})
+
+print(df)
+
+import numpy as np
+
+with open("/Users/matsui/Desktop/lab.nakamuro/dataset2019a.csv") as f:
+    print(f.read())
+ 
+    import pandas as pd
+csv_data = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/pga.csv")
+
+
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+csv_data = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/pga.csv")
+arrays = csv_data.loc[:,['scorerd', 'handicap']].values
+import numpy as np
+results = np.corrcoef(arrays.T)
+print("相関係数を出力")
+print(results)
+
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+csv_data = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/pga.csv")
+arrays = csv_data.loc[:,['scorerd', 'drivdist']].values
+import numpy as np
+results = np.corrcoef(arrays.T)
+print("相関係数を出力")
+print(results)
+
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+csv_data = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/pga.csv")
+arrays = csv_data.loc[:,['scorerd', 'handicap']].values
+import numpy as np
+results = np.corrcoef(arrays.T)
+print("相関係数を出力")
+print(results)
+
+print( csv_data.describe() )
+( csv_data.describe() )
+first_hikisu = csv_data.describe
+
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+csv_data = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/pga.csv")
+
+arrays = csv_data.loc[:,['scorerd', 'handicap']].values
+import numpy as np
+results = np.corrcoef(arrays.T)
+print("相関係数を出力")
+print(results)
+df = pd.read_csv(csv_data, index_col=0)
+print(df)
+
+
+
+#新しいことをいちから始める
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+%matplotlib inline
+data_pga = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/pga.csv")
+
+data_pga.head()
+data_pga.describe()
+data_pga.shape
+data_pga.info
+#data_pga.isnull().any(axis=0)
+#data_pga.isnull().sum()
+data_pga.head()
+#data_pga.dropna(axis=1,inplace=True)
+data_pga.shape
+data_pga.shape
+data_pga.dropna(axis=0,inplace=True)
+data_pga.shape
+
+#new
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+
+data_pga = pd.read_csv('/Users/matsui/Desktop/lab.nakamuro/pga.csv')
+data_pga = pd.read_csv('/Users/matsui/Desktop/lab.nakamuro/pga.csv', usecols=[ 'scorerd','handicap','drivdist','putts','mean_handicap'])
+data_pga.shape
+data_pga.dropna(axis=0,inplace=True)
+data_pga.shape
+arrays = data_pga.loc[:,['scorerd', 'handicap']].values
+import numpy as np
+results = np.corrcoef(arrays.T)
+print("相関係数を出力")
+print(results)
+arrays = data_pga.loc[:,['scorerd', 'drivdist']].values
+import numpy as np
+results = np.corrcoef(arrays.T)
+print("相関係数を出力")
+print(results)
+arrays = data_pga.loc[:,['scorerd', 'putts']].values
+import numpy as np
+results = np.corrcoef(arrays.T)
+print("相関係数を出力")
+print(results)
+arrays = data_pga.loc[:,['handicap', 'drivdist']].values
+import numpy as np
+results = np.corrcoef(arrays.T)
+print("相関係数を出力")
+print(results)
+data_pga.transpose()
+data_pga.transpose().shape
+np.corrcoef(data_pga.transpose())
+
+#プロット
+fig, ax = plt.subplots(figsize=(12, 9)) 
+sns.heatmap(df_house_corr, square=True, vmax=1, vmin=-1, center=0)
+plt.savefig('/Users/matsui/Desktop/lab.nakamuro/pga.csv')
+
+#peer groupのability variance
+In [6]: uniq_groups = list( set( list( df["grouping_id"]  ) ) )
+   ...: for group in uniq_groups:
+   ...:     grouping_n = grouping_groupby.get_group( group )
+   ...:     grouping_n_stdr = np.array(  grouping_n["handicap"] ).std()
+   ...:     print(  group , "能力分散 :"  , round( grouping_n_std ) ,５)
+
+
+  File "<ipython-input-6-3143325a9c83>", line 1, in <module>
+    uniq_groups = list( set( list( df["grouping_id"]  ) ) )
+    
+    
+    uniq_groups = list( set( list( df["grouping_id"]  ) ) )
+for group in uniq_groups:
+    grouping_n = grouping_groupby.get_group( group )
+    grouping_n_std = np.array(  grouping_n["handicap"] ).std()
+    print(  group , "の標準偏差 :"  , round( grouping_n_std  ) , 10 )
+
+import sys
+import pandas as pd
+df = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/pga.csv")
+uniq_groups = list( set( list( df["grouping_id"] ) ) )
+​
+for group in uniq_groups:
+	grouping_n = grouping_groupby.get_group( group )
+	print( grouping_n["handicap"] )
+	sys.exit()
+    
+import sys
+import pandas as pd
+df = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/pga.csv")
+uniq_groups = list( set (list( df ["grouping_id"] ))
+for group in uniq_groups:
+    grouping_n = grouping_groupby.get_group(group)
+	print( group , grouping_n["handicap"] )
+	sys.exit() 
+    
+    uniq_groups = list( set( list( df["grouping_id"]  ) ) )
+for group in uniq_groups:
+    grouping_n = grouping_groupby.get_group( group )
+    grouping_n_std = np.array(  grouping_n["handicap"] ).std()
+    print(  group , "の標準偏差 :"  , ( grouping_n_std  )  )
+    
+    
+    grouping_groupby = df.groupby("grouping_id")
+grouping_groupby
+grouping_groupby.groups
+grouping_groupby.get_group('1_1')
+grouping_1_1=grouping_groupby.get_group('1_1')
+import sys
+import numpy as np
+#hoge = np.array( grouping_1_1 ["handicap"] ).std()
+uniq_groups = list( set( list( df["grouping_id"]  ) ) )
+for group in uniq_groups:
+    grouping_n = grouping_groupby.get_group( group )
+    grouping_n_std = np.array(  grouping_n["handicap"] ).std()
+    print(  group , "の標準偏差 :"  , ( grouping_n_std  )  )
+    
+#Peer Group の標準偏差を求めるコード
+    
+ import pandas as pd
+df = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/pga.csv")
+id_groupby = df.groupby("grouping_id")
+id_groupby
+id_groupby.groups
+
+id_groupby = df.groupby("handicap")
+id_groupby.std()
+ability_variance=id_groupby.std()
+
+#grouping_groupby = df.groupby("grouping_id")
+#grouping_groupby
+#grouping_groupby.groups
+#grouping_groupby.get_group('1_1')
+#grouping_1_1=grouping_groupby.get_group('1_1')
+
+#Peer Group の標準偏差を求めるコード
+import sys
+import numpy as np
+import pandas as pd
+df = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/pga.csv")
+
+id_groupby = df.groupby("grouping_id")
+id_groupby
+id_groupby.groups
+#hoge = np.array( grouping_1_1 ["handicap"] ).std()
+uniq_groups = list( set( list( df["grouping_id"]  ) ) )
+for group in uniq_groups:
+    grouping_n = grouping_groupby.get_group(group)
+    grouping_n_std = np.array(  grouping_n["handicap"] ).std()
+    print(  group ,":", ( grouping_n_std  )  )
+    
+import sys
+import numpy as np
+import pandas as pd
+df = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/pga.csv")
+print( df.describe() )
+#goupbyで特定のグループ　.特定の指示　の値を算出する。以下はcsv_dataのgrouping_idの中のサイズを示している。
+csv_data.groupby('grouping_id').size()
+grouping_size=csv_data.groupby('grouping_id').size()
+
+grouping_groupby = df.groupby("grouping_id") # idでグループ分けする
+grouping_groupby # GroupByオブジェクトになる。
+grouping_groupby.groups
+guouping=grouping_groupby.groups
+grouping_groupby['handicap'].std()
+
+
+csv_data.groupby('grouping_id').std()
+id_groupby = df.groupby("grouping_id")
+id_groupby
+hikisuuuuuuu = id_groupby.groups
+uniq_groups = list( set( list( df["grouping_id"]  ) ) )
+for group in uniq_groups:
+
+ import sys
+import numpy as np
+import pandas as pd
+df = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/pga.csv")
