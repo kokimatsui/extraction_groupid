@@ -1,3 +1,11 @@
+2019/12/11　質問
+#同じ'gruoping_id'を持つ個人をグループ化→そのグループhandicapのstdを含む列を作る
+df['ability_std'] = df.groupby('grouping_id')['handicap'].transform('std')
+
+
+
+
+
 #df = pd.read_csv("/Users/matsui/Desktop/lab.nakamuro/pga.csv")←昨日まではこれでcsvでーたを読み込めていました。
 #11月23日(土)１１：５５の質問部分
 
